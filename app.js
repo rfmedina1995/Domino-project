@@ -2,8 +2,8 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
 
     // Initialize team objects with names and subtotals
-    $scope.team1 = { name: 'Team 1', subtotal: 0 };
-    $scope.team2 = { name: 'Team 2', subtotal: 0 };
+    $scope.team1 = { name: '', subtotal: 0 };
+    $scope.team2 = { name: '', subtotal: 0 };
 
     // Define max points to win and a flag for game over
     $scope.maxPoints = 100;
