@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +11,40 @@
 
 </head>
 
- <body ng-controller="ScoreController">
+<body>
+
     <h1>Tampa Family Domino Scorer</h1>
 
-     <div id = "image">
+    <div id = "image">
 
-    <img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F818boyo8z-L._AC_SX679_.jpg&f=1&nofb=1&ipt=dab8aa095f00c661323b959abea356b7b521a2ef3e86d81725ee29610c73537c&ipo=images">
+   <img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F818boyo8z-L._AC_SX679_.jpg&f=1&nofb=1&ipt=dab8aa095f00c661323b959abea356b7b521a2ef3e86d81725ee29610c73537c&ipo=images" style="height: fit-content;">
 
-     </div>
-     
-     
+    </div>
+    
+    <div>
+
+         <button type="reset"> New Game</button>
+
+    </div>
 
 
-<script src="app.js"></script>
+    <div id="team1">
+     <input type="text"> Team 1 Name 
+    </div>
+
+    <div id="team2">
+        <input type="text"> Team 2 Name 
+    </div>
+
+    <div>
+
+        Game 1 <input type="number">
+
+    </div>
+
+<div>
+    <button type="submit"> Update </button>
+</div>
+
 </body>
 </html>
