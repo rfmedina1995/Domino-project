@@ -1,50 +1,77 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domino Scorer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
+    <script src="js.js"></script>
 </head>
-
-<body>
-
+<body ng-controller="myCtrl">
     <h1>Tampa Family Domino Scorer</h1>
 
-    <div id = "image">
-
-   <img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F818boyo8z-L._AC_SX679_.jpg&f=1&nofb=1&ipt=dab8aa095f00c661323b959abea356b7b521a2ef3e86d81725ee29610c73537c&ipo=images" style="height: fit-content;">
-
-    </div>
-    
+    <!-- Set max points for the game -->
     <div>
-
-         <button type="reset"> New Game</button>
-
+        <label>Max Points to Win:</label>
+        <input type="number" ng-model="maxPoints" placeholder="Enter max points">
     </div>
 
-
-    <div id="team1">
-     <input type="text"> Team 1 Name 
-    </div>
-
-    <div id="team2">
-        <input type="text"> Team 2 Name 
-    </div>
-
+    <!-- Team names -->
     <div>
-
-        Game 1 <input type="number">
-
+        <label>Team 1 Name: </label>
+        <input type="text" ng-model="team1.name" placeholder="Enter Team 1 Name">
+        <label>Team 2 Name: </label>
+        <input type="text" ng-model="team2.name" placeholder="Enter Team 2 Name">
     </div>
 
-<div>
-    <button type="submit"> Update </button>
-</div>
+    <h2>Game Scores</h2>
+
+    <!-- Table for displaying game rounds and scores -->
+    <table>
+        <thead>
+            <tr>
+                <th>{{ team1.name }}</th>
+                <th>{{ team2.name }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Display each game as a row -->
+            <tr ng-repeat="game in games track by $index">
+                <td>Game {{$index + 1}}: {{ game.team1Score }}</td>
+                <td>Game {{$index + 1}}: {{ game.team2Score }}</td>
+            </tr>
+            <!-- Subtotal row (only show when game is not over) -->
+            <tr ng-if="!gameOver">
+                <td><strong>Total: {{ team1.subtotal }}</strong></td>
+                <td><strong>Total: {{ team2.subtotal }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Display winning message when the game is over -->
+    <div class="winning-message" ng-if="gameOver">
+        <h3>{{ winningMessage }}</h3>
+    </div>
+
+    <!-- Controls for adding points -->
+    <div>
+        <label>Select Team:</label>
+        <select ng-model="selectedTeam">
+            <option value="">--Choose Team--</option>
+            <option value="team1">{{ team1.name }}</option>
+            <option value="team2">{{ team2.name }}</option>
+        </select>
+
+        <label>Points:</label>
+        <input type="number" ng-model="points" placeholder="Enter points">
+        
+        <!-- Single Update button -->
+        <button type="button" ng-click="updateScore()" ng-disabled="gameOver">Update</button>
+    </div>
+
+    <!-- New Game button to reset everything -->
+    <button type="button" ng-click="newGame()">New Game</button>
 
 </body>
 </html>
