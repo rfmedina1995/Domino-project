@@ -37,7 +37,7 @@ app.controller('myCtrl', function($scope) {
         // Check if max points have been reached
         if ($scope.team1.subtotal >= $scope.maxPoints || $scope.team2.subtotal >= $scope.maxPoints) {
             const winningTeam = $scope.team1.subtotal >= $scope.maxPoints ? $scope.team1 : $scope.team2;
-            $scope.winningMessage = `${winningTeam.name} wins with ${winningTeam.subtotal} points! Bajandaaa`;
+            $scope.winningMessage = `${winningTeam.name} gana con ${winningTeam.subtotal} puntos! Bajandaaa`;
             $scope.gameOver = true;
         }
 
