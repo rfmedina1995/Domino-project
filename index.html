@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domino Scorer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="js.js"></script>
+    <script src="js/app.js"></script> <!-- Correct path to app.js -->
 </head>
 <body ng-controller="myCtrl">
     <h1>Tampa Family Domino Scorer</h1>
@@ -36,12 +36,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Display each game as a row -->
             <tr ng-repeat="game in games track by $index">
                 <td>Game {{$index + 1}}: {{ game.team1Score }}</td>
                 <td>Game {{$index + 1}}: {{ game.team2Score }}</td>
             </tr>
-            <!-- Subtotal row (only show when game is not over) -->
             <tr ng-if="!gameOver">
                 <td><strong>Total: {{ team1.subtotal }}</strong></td>
                 <td><strong>Total: {{ team2.subtotal }}</strong></td>
@@ -49,12 +47,10 @@
         </tbody>
     </table>
 
-    <!-- Display winning message when the game is over -->
     <div class="winning-message" ng-if="gameOver">
         <h3>{{ winningMessage }}</h3>
     </div>
 
-    <!-- Controls for adding points -->
     <div>
         <label>Select Team:</label>
         <select ng-model="selectedTeam">
@@ -66,12 +62,11 @@
         <label>Points:</label>
         <input type="number" ng-model="points" placeholder="Enter points">
         
-        <!-- Single Update button -->
         <button type="button" ng-click="updateScore()" ng-disabled="gameOver">Update</button>
     </div>
 
-    <!-- New Game button to reset everything -->
+    <button type="button" ng-click="addGame()" ng-disabled="gameOver">Add Game</button>
     <button type="button" ng-click="newGame()">New Game</button>
-
 </body>
 </html>
+
