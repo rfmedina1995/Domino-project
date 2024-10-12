@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domino Scorer</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="js/app.js"></script> <!-- Correct path to app.js -->
+    <script src="app.js"></script> <!-- Correct path to app.js -->
 </head>
 <body ng-controller="myCtrl">
     <h1>Tampa Family Domino Scorer</h1>
@@ -19,9 +19,9 @@
 
     <!-- Team names -->
     <div>
-        <label>Team 1 Name: </label>
+        <label>Team 1 Nombre: </label>
         <input type="text" ng-model="team1.name" placeholder="Enter Team 1 Name">
-        <label>Team 2 Name: </label>
+        <label>Team 2 Nombre: </label>
         <input type="text" ng-model="team2.name" placeholder="Enter Team 2 Name">
     </div>
 
@@ -54,7 +54,7 @@
     <div>
         <label>Select Team:</label>
         <select ng-model="selectedTeam">
-            <option value="">--Choose Team--</option>
+            <option value="">--Selecciona Team--</option>
             <option value="team1">{{ team1.name }}</option>
             <option value="team2">{{ team2.name }}</option>
         </select>
@@ -62,11 +62,11 @@
         <label>Points:</label>
         <input type="number" ng-model="points" placeholder="Enter points">
         
-        <button type="button" ng-click="updateScore()" ng-disabled="gameOver">Update</button>
+        <button type="button" ng-click="updateScore()" ng-disabled="gameOver">Actualizar</button>
     </div>
 
     <button type="button" ng-click="addGame()" ng-disabled="gameOver">Add Game</button>
-    <button type="button" ng-click="newGame()">New Game</button>
+    <button type="button" ng-click="newGame()">Nuevo Juego</button>
 </body>
 </html>
 
